@@ -1,0 +1,2 @@
+[console_scripts]
+video-feature-extractor = video_feature_extractor.cli:main

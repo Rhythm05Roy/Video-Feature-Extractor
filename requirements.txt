@@ -1,0 +1,15 @@
+# Core dependencies
+numpy>=1.21.0
+opencv-python>=4.5.0
+pillow>=9.0.0
+pytesseract>=0.3.10
+ultralytics>=8.0.0
+
+# Configuration
+pyyaml>=6.0
+
+# Progress bars
+tqdm>=4.64.0
+
+# Development dependencies (install with: pip install -r requirements.txt -r requirements-dev.txt)
+# Or: pip install -e ".[dev]"

@@ -1,0 +1,60 @@
+# Video Feature Extractor Configuration Example
+# Copy this file to config.yaml and customize as needed.
+
+# Shot Cut Detection Settings
+shot_cut:
+  enabled: true
+  frame_step: 1              # Process every Nth frame (1 = every frame)
+  diff_threshold: 30.0       # Mean pixel difference to trigger cut detection
+  min_gap_frames: 5          # Minimum frames between detected cuts
+
+# Motion Analysis Settings  
+motion:
+  enabled: true
+  frame_step: 2              # Process every Nth frame
+  pyr_scale: 0.5             # Pyramid scale for optical flow
+  levels: 3                  # Pyramid levels
+  winsize: 15                # Averaging window size
+  iterations: 3              # Algorithm iterations
+  poly_n: 5                  # Polynomial expansion size
+  poly_sigma: 1.2            # Polynomial expansion sigma
+
+# Text Detection (OCR) Settings
+text_detection:
+  enabled: true
+  frame_step: 15             # Process every Nth frame (OCR is slow)
+  min_confidence: 70.0       # Minimum OCR confidence score (0-100)
+  language: "eng"            # Tesseract language code
+
+# Object/Person Detection Settings
+object_detection:
+  enabled: true
+  frame_step: 15             # Process every Nth frame (YOLO is GPU-intensive)
+  confidence_threshold: 0.5  # Detection confidence threshold (0-1)
+  nms_threshold: 0.4         # Non-max suppression threshold
+  model_size: "n"            # YOLOv8 model: n (nano), s, m, l, x (xlarge)
+  use_gpu: false             # Set true to use CUDA GPU
+
+# Logging Settings
+logging:
+  level: "INFO"              # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  log_file: null             # Path to log file (null for console only)
+  json_format: false         # Output logs as JSON
+  show_progress: true        # Show progress updates
+
+# Output Settings
+output:
+  format: "json"             # Output format: json
+  pretty_print: true         # Pretty-print JSON output
+  include_metadata: true     # Include video metadata in output
+  include_timestamps: true   # Include extraction timestamps
+
+# General Settings
+default_features:
+  - cuts
+  - motion
+  - text
+  - objects
+
+cache_results: false         # Cache extraction results
+cache_dir: null              # Cache directory (null for system temp)
